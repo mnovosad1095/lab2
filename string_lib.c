@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 typedef struct
 {
 	size_t capacity_m; // Розмір блока
@@ -9,6 +10,8 @@ typedef struct
 	char*  data;	   // Вказівник на блок пам'яті
 } my_str_t;
 
+
+#include "string_info.h"
 
 int my_str_create(my_str_t* str, size_t buf_size);
 
@@ -26,7 +29,8 @@ int my_str_create(my_str_t* str, size_t buf_size){
     str -> size_m = buf_size;
     str -> capacity_m = buf_size * 2;
     str -> data = (char*) malloc(str -> capacity_m);
-    printf("%u\n", str -> data);    
+    printf("%u\n", str -> data);
+    printf("%u\n", my_str_size(str));
     return 0;
 }
 
