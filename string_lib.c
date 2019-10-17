@@ -35,6 +35,10 @@ int my_str_create(my_str_t* str, size_t buf_size) {
     str -> capacity_m = buf_size * 2;
     str -> data = (char *) malloc(str -> capacity_m);
 
+    if (str -> data == NULL) {
+        return -1;
+    }
+
     return 0;
 }
 
@@ -56,11 +60,12 @@ int my_str_from_cstr(my_str_t* str, const char* cstr, size_t buf_size){
     } else if (buf_size < sizeof(cstr)) {
         return -1;
     } 
-    my_str_resize(str, buf_size, '0');
-
-    for (size_t i = 0; i < buf_size; i++ ){
-        str -> data[i] = cstr[i];
-    }
+    
+    char *new_buffer = (char *) malloc(buf_size);
+    
+    memmove(new_buffer, cstr, sizeof(cstr));
+    str -> data = new_buffer;
+    str -> size_m = 
     
     return 0;
 }
