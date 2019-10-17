@@ -1,17 +1,18 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <memory.h>
 
 typedef struct
 {
-	size_t capacity_m; 
-	size_t size_m;	   
-	char*  data;	   
+	size_t capacity_m;
+	size_t size_m;
+	char*  data;
 } my_str_t;
 
 
 #include "string_info.h"
+#include "string_modify.h"
 
 int my_str_create(my_str_t* str, size_t buf_size);
 int my_str_getc(const my_str_t* str, size_t index);
@@ -20,12 +21,17 @@ int my_str_putc(my_str_t* str, size_t index, char c);
 
 
 int main(int argc, char* argv[]){
-    my_str_t name;
-    char k[3] = "abc";
-
-    my_str_create(&name, 3);
-    my_str_from_cstr(&name, k, 3);
-    printf("%c\n", my_str_getc(&name, 2));
+//    my_str_t str;
+//    char k[3] = "abc";
+//
+//    my_str_create(&str, 3);
+//    my_str_from_cstr(&str, k, 3);
+//    printf("%c\n", my_str_getc(&str, 2));
+//
+//    my_str_reserve(&str, str.capacity_m * 2);
+//
+//    my_str_insert_c(&str, 'd', 2);
+//    printf("%s", str.data);
     return 0;
 }
 
@@ -33,9 +39,7 @@ int main(int argc, char* argv[]){
 int my_str_create(my_str_t* str, size_t buf_size) {
     str -> size_m = buf_size;
     str -> capacity_m = buf_size * 2;
-    str -> data = (char*) malloc(str -> capacity_m);
-    printf("%u\n", str -> data);
-    printf("%u\n", my_str_size(str));
+    str -> data = (char *) malloc(str -> capacity_m);
 
     return 0;
 }
@@ -46,7 +50,7 @@ int my_str_getc(const my_str_t* str, size_t index) {
         return -1;
     }
 
-    return (int) str->data[index];
+    return (int) str -> data[index];
 }
 
 
@@ -61,7 +65,7 @@ int my_str_from_cstr(my_str_t* str, const char* cstr, size_t buf_size){
 }
 
 int my_str_putc(my_str_t* str, size_t index, char c){
-    
+
 }
 
 
