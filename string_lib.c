@@ -2,15 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
-
-typedef struct
-{
-	size_t capacity_m;
-	size_t size_m;
-	char*  data;
-} my_str_t;
-
-
+#include "structure.h"
 #include "string_info.h"
 #include "string_modify.h"
 

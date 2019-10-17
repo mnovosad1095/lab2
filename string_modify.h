@@ -38,7 +38,22 @@ int my_str_reserve(my_str_t* str, size_t buf_size) {
 }
 
 int my_str_resize(my_str_t* str, size_t new_size, char sym){
-    
+    char *new_buffer = (char *) malloc(new_size);
+
+    if (new_buffer == NULL) {
+        return -1;
+    }
+
+    if (new_size <= str->size_m){
+        memmove(new_buffer, str -> data, new_size);
+    } else {
+        memmove(new_buffer, str -> data, str -> size_m);
+        for (size_t i = str->size_m; i < new_size; i++) {
+            new_buffer[i] = sym;
+        }
+    }
+
+    return 0;
 }
 
 int my_str_pushback(my_str_t* str, char c) {
