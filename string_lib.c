@@ -37,7 +37,7 @@ int main(int argc, char* argv[]){
 
 
 int my_str_create(my_str_t* str, size_t buf_size) {
-    str -> size_m = buf_size;
+    str -> size_m = 0;
     str -> capacity_m = buf_size * 2;
     str -> data = (char *) malloc(str -> capacity_m);
 

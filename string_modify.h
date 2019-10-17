@@ -12,6 +12,8 @@ int my_str_append(my_str_t* str, const my_str_t* from);
 int my_str_append_cstr(my_str_t* str, const char* from);
 int my_str_substr(const my_str_t* from, my_str_t* to, size_t beg, size_t end);
 int my_str_substr_cstr(const my_str_t* from, char* to, size_t beg, size_t end);
+int my_str_resize(my_str_t* str, size_t new_size, char sym);
+
 
 int my_str_reserve(my_str_t* str, size_t buf_size) {
     if (buf_size <= str -> capacity_m) {
@@ -33,6 +35,10 @@ int my_str_reserve(my_str_t* str, size_t buf_size) {
     str -> data = new_buffer;
 
     return 0;
+}
+
+int my_str_resize(my_str_t* str, size_t new_size, char sym){
+    
 }
 
 int my_str_pushback(my_str_t* str, char c) {
