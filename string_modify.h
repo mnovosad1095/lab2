@@ -21,7 +21,7 @@ int my_str_reserve(my_str_t* str, size_t buf_size) {
         return 0;
     }
 
-    char *new_buffer = (char *) malloc(buf_size);
+    char *new_buffer = (char *) malloc(buf_size + 1);
 
     if (new_buffer == NULL) {
         return -1;
@@ -39,7 +39,7 @@ int my_str_reserve(my_str_t* str, size_t buf_size) {
 }
 
 int my_str_resize(my_str_t* str, size_t new_size, char sym){
-    char *new_buffer = (char *) malloc(new_size);
+    char *new_buffer = (char *) malloc(new_size + 1);
 
     if (new_buffer == NULL) {
         return -1;
@@ -65,6 +65,8 @@ int my_str_resize(my_str_t* str, size_t new_size, char sym){
     }
 
     free(str -> data);
+    str -> data = new_buffer;
+    str -> size_m = new_size;
 
     return 0;
 }
@@ -77,7 +79,10 @@ int my_str_shrink_to_fit(my_str_t* str){
     }
 
     memmove(new_buffer, str -> data, str -> size_m);
+    
     free(str -> data);
+    str -> data = new_buffer;
+    str -> capacity_m = str -> size_m;
 
     return 0;
 }

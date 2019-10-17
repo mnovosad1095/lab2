@@ -5,9 +5,10 @@
 #include "structure.h"
 #include "string_info.h"
 #include "string_modify.h"
+#include "read_write.h"
 
 int my_str_create(my_str_t* str, size_t buf_size);
-void mys_str_free(my_str_t* str);
+void my_str_free(my_str_t* str);
 int my_str_getc(const my_str_t* str, size_t index);
 int my_str_from_cstr(my_str_t* str, const char* cstr, size_t buf_size);
 int my_str_putc(my_str_t* str, size_t index, char c);
@@ -26,6 +27,13 @@ int main(int argc, char* argv[]){
 //
 //    my_str_insert_c(&str, 'd', 2);
 //    printf("%s", str.data);
+
+    my_str_t str;
+    my_str_create(&str, 10);
+    FILE fp = *fopen("a.txt", "r");
+    my_str_read_file(&str, &fp);
+    printf("%s\n", str.data);
+
     return 0;
 }
 
@@ -40,15 +48,6 @@ int my_str_create(my_str_t* str, size_t buf_size) {
     }
 
     return 0;
-}
-
-
-int my_str_getc(const my_str_t* str, size_t index) {
-    if (index > str -> size_m) {
-        return -1;
-    }
-
-    return (int) str -> data[index];
 }
 
 
