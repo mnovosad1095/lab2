@@ -64,6 +64,56 @@ int my_str_putc(my_str_t* str, size_t index, char c){
     
 }
 
+//FUNCTIONS FOR SEARCHING AND COMPARISON//
+
+size_t my_str_find(const my_str_t* str, const my_str_t* tofind, size_t from) {
+    size_t curr = from, flag, counter = 0;
+
+    while (curr < (str->size_m) - (tofind->size_m) && (tofind->size_m) > 0) {
+        if (my_str_getc(str, curr) == my_str_getc(tofind, 0)) {
+            flag = curr;
+            counter = 0;
+            for (size_t count = curr; count < (curr + (tofind->size_m)); count++) {
+                if (my_str_getc(str, count) == my_str_getc(tofind, counter)) {
+                    counter++;
+                } else {
+                    counter = 0;
+                    flag = 0;
+                    break;
+                }
+            }
+            if (counter == tofind->size_m) {
+                return flag;
+            }
+        }
+        curr++;
+    }
+    return (size_t) (-1);
+}
+
+int my_str_cmp(const my_str_t* str1, const my_str_t* str2) {
+    if ((str1 -> size_m) < (str2 -> size_m)) {
+        return -1;
+    }
+    else if ((str1 -> size_m) > (str2 -> size_m)) {
+        return 1;
+    }
+    else {
+        size_t i = 0;
+        while (i < str1->size_m) {
+            if (my_str_getc(str1, i) == my_str_getc(str2, i)) {
+                i++;
+            }
+            else if (my_str_getc(str1, i) < my_str_getc(str2, i)) {
+                return -1;
+            }
+            else {
+                return 1;
+            }
+        }
+        return 0;
+    }
+}
 
 
 
