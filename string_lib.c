@@ -3,8 +3,11 @@
 #include <stdlib.h>
 #include <memory.h>
 #include "structure.h"
+#include "error_constans.h"
+#include "helper_funcs.h"
 #include "string_info.h"
 #include "string_modify.h"
+
 
 int my_str_create(my_str_t* str, size_t buf_size);
 void mys_str_free(my_str_t* str);
