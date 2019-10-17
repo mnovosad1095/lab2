@@ -53,7 +53,6 @@ int my_str_getc(const my_str_t* str, size_t index) {
 
 
 int my_str_from_cstr(my_str_t* str, const char* cstr, size_t buf_size){
-    //TODO MAKE RESIZE
 
     if (buf_size == 0) { 
         buf_size = sizeof(cstr); 
@@ -62,10 +61,13 @@ int my_str_from_cstr(my_str_t* str, const char* cstr, size_t buf_size){
     } 
     
     char *new_buffer = (char *) malloc(buf_size);
+
+    size_t len = str_len(cstr);
     
-    memmove(new_buffer, cstr, sizeof(cstr));
+    memmove(new_buffer, cstr, len);
+    
     str -> data = new_buffer;
-    str -> size_m = 
+    str -> size_m = len;
     
     return 0;
 }
