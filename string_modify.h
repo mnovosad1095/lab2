@@ -13,6 +13,7 @@ int my_str_append_cstr(my_str_t* str, const char* from);
 int my_str_substr(const my_str_t* from, my_str_t* to, size_t beg, size_t end);
 int my_str_substr_cstr(const my_str_t* from, char* to, size_t beg, size_t end);
 int my_str_resize(my_str_t* str, size_t new_size, char sym);
+int my_str_shrink_to_fit(my_str_t* str);
 
 
 int my_str_reserve(my_str_t* str, size_t buf_size) {
@@ -44,14 +45,39 @@ int my_str_resize(my_str_t* str, size_t new_size, char sym){
         return -1;
     }
 
-    if (new_size <= str->size_m){
+    if (new_size < str->size_m){
+
         memmove(new_buffer, str -> data, new_size);
+
+    } else if(new_size == str->size_m){
+
+        return 0;
+
     } else {
+
         memmove(new_buffer, str -> data, str -> size_m);
+
         for (size_t i = str->size_m; i < new_size; i++) {
+            // fill empty memory with given symbol
             new_buffer[i] = sym;
         }
+
     }
+
+    free(str -> data);
+
+    return 0;
+}
+
+int my_str_shrink_to_fit(my_str_t* str){
+    char *new_buffer = (char *) malloc(str -> size_m);
+    
+    if (new_buffer == NULL) {
+        return -1;
+    }
+
+    memmove(new_buffer, str -> data, str -> size_m);
+    free(str -> data);
 
     return 0;
 }
@@ -66,6 +92,8 @@ int my_str_pushback(my_str_t* str, char c) {
     }
 
     str -> data[str -> size_m++] = c;
+
+    return 0;
 }
 
 
