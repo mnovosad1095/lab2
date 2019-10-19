@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
+#include <wchar.h>
 #include "structure.h"
 #include "string_info.h"
 #include "string_modify.h"
@@ -16,24 +17,6 @@ void do_smth(my_str_t* str);
 
 
 int main(int argc, char* argv[]){
-//    my_str_t str;
-//    char k[3] = "abc";
-//
-//    my_str_create(&str, 3);
-//    my_str_from_cstr(&str, k, 3);
-//    printf("%c\n", my_str_getc(&str, 2));
-//
-//    my_str_reserve(&str, str.capacity_m * 2);
-//
-//    my_str_insert_c(&str, 'd', 2);
-//    printf("%s", str.data);
-
-    my_str_t str;
-    my_str_create(&str, 10);
-    FILE fp = *fopen("a.txt", "r");
-    my_str_read_file(&str, &fp);
-    printf("%s\n", str.data);
-
     return 0;
 }
 
