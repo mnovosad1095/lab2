@@ -13,7 +13,6 @@ void my_str_free(my_str_t* str);
 int my_str_getc(const my_str_t* str, size_t index);
 int my_str_from_cstr(my_str_t* str, const char* cstr, size_t buf_size);
 int my_str_putc(my_str_t* str, size_t index, char c);
-void do_smth(my_str_t* str);
 
 
 int main(int argc, char* argv[]){
@@ -64,11 +63,3 @@ int my_str_getc(const my_str_t* str, size_t index) {
 
 int my_str_putc(my_str_t* str, size_t index, char c){
 }
-
-
-void do_smth(my_str_t* str){
-    printf("%d", my_str_getc(str, 1));
-}
-
-
-
