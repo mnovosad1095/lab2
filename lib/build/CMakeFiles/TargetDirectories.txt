@@ -1,0 +1,3 @@
+/home/m/Documents/POC/lab2/lib/build/CMakeFiles/rebuild_cache.dir
+/home/m/Documents/POC/lab2/lib/build/CMakeFiles/my_str.dir
+/home/m/Documents/POC/lab2/lib/build/CMakeFiles/edit_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/exp.dir/exp.c.o  -o exp -Wl,-rpath,/home/m/Documents/POC/lab2/example/../lib/bin ../../lib/bin/libmy_str.so 

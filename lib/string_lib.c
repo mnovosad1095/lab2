@@ -1,26 +1,21 @@
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <memory.h>
-#include <wchar.h>
-#include "structure.h"
-#include "error_constans.h"
-#include "helper_funcs.h"
-#include "string_info.h"
-#include "string_modify.h"
-#include "read_write.h"
+// #include <stddef.h>
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <memory.h>
+// #include <wchar.h>
+// #include "structure.h"
+// #include "string_info.h"
+// #include "string_modify.h"
+// #include "read_write.h"
 
+#include "string_lib.h"
 
-int my_str_create(my_str_t* str, size_t buf_size);
-void my_str_free(my_str_t* str);
-int my_str_getc(const my_str_t* str, size_t index);
-int my_str_from_cstr(my_str_t* str, const char* cstr, size_t buf_size);
-int my_str_putc(my_str_t* str, size_t index, char c);
+// int my_str_create(my_str_t* str, size_t buf_size);
+// void my_str_free(my_str_t* str);
+// int my_str_getc(const my_str_t* str, size_t index);
+// int my_str_from_cstr(my_str_t* str, const char* cstr, size_t buf_size);
+// int my_str_putc(my_str_t* str, size_t index, char c);
 
-
-int main(int argc, char* argv[]){
-    return 0;
-}
 
 
 int my_str_create(my_str_t* str, size_t buf_size) {
