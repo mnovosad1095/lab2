@@ -1,0 +1,3 @@
+/home/m/Documents/POC/lab2/example/build/CMakeFiles/rebuild_cache.dir
+/home/m/Documents/POC/lab2/example/build/CMakeFiles/exp.dir
+/home/m/Documents/POC/lab2/example/build/CMakeFiles/edit_cache.dir

@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../lib/string_lib.h
+stddef.h
+../../lib/stddef.h
+stdlib.h
+-
+memory.h
+-
+stdio.h
+-
+
+/home/m/Documents/POC/lab2/example/exp.c
+string_lib.h
+/home/m/Documents/POC/lab2/example/string_lib.h
+

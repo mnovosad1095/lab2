@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/m/Documents/POC/lab2/lib/read_write.c
+string_lib.h
+/home/m/Documents/POC/lab2/lib/string_lib.h
+
+/home/m/Documents/POC/lab2/lib/string_info.c
+string_lib.h
+/home/m/Documents/POC/lab2/lib/string_lib.h
+
+/home/m/Documents/POC/lab2/lib/string_lib.c
+string_lib.h
+/home/m/Documents/POC/lab2/lib/string_lib.h
+
+/home/m/Documents/POC/lab2/lib/string_lib.h
+stddef.h
+/home/m/Documents/POC/lab2/lib/stddef.h
+stdlib.h
+-
+memory.h
+-
+stdio.h
+-
+
+/home/m/Documents/POC/lab2/lib/string_modify.c
+string_lib.h
+/home/m/Documents/POC/lab2/lib/string_lib.h
+

@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC   -shared -Wl,-soname,libmy_str.so -o ../bin/libmy_str.so CMakeFiles/my_str.dir/string_lib.c.o CMakeFiles/my_str.dir/string_modify.c.o CMakeFiles/my_str.dir/string_info.c.o CMakeFiles/my_str.dir/read_write.c.o 
