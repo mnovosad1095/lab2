@@ -1,6 +1,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "string_modify.h"
 
 
 typedef struct
@@ -45,8 +46,7 @@ int my_str_getc(const my_str_t* str, size_t index) {
     if (index > str -> size_m) {
         return -1;
     }
-
-    return (int) str->data[index];
+    return (int) str -> data[index];
 }
 
 
@@ -115,5 +115,48 @@ int my_str_cmp(const my_str_t* str1, const my_str_t* str2) {
     }
 }
 
+int my_str_cmp_cstr(const my_str_t* str1, const char* cstr2) {
+    size_t mystrlen = str1 -> size_m;
+    size_t cstrlen = str_len(cstr2);
 
+    if (mystrlen < cstrlen) {
+        return -1;
+    }
+    else if (mystrlen > cstrlen) {
+        return 1;
+    }
+    else {
+        size_t i = 0;
+        while (i < mystrlen) {
+            if (my_str_getc(str1, i) == cstr2[i]) {
+                i++;
+            }
+            else if (my_str_getc(str1, i) < cstr2[i]) {
+                return -1;
+            }
+            else {
+                return 1;
+            }
+        }
+        return 0;
+    }
+}
 
+size_t my_str_find_c(const my_str_t* str, char tofind, size_t from) {
+    while (from < str->size_m) {
+        if (my_str_getc(str, from) == tofind) {
+            return from;
+        }
+        from++;
+    }
+    return (size_t)(-1);
+}
+
+size_t my_str_find_if(const my_str_t* str, int (*predicat)(int)) {
+    for (int i = 0; i < str->size_m; i++) {
+        if (predicat(my_str_getc(str, i))) {
+            return (size_t)(i);
+        }
+    }
+    return (size_t)(-1);
+}
