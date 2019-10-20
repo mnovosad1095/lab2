@@ -1,12 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "../../structure.h"
-#include "../../error_constans.h"
-#include "../../helper_funcs.h"
-#include "../../string_general.h"
-#include "../../string_info.h"
-#include "../../string_modify.h"
-
+#include "../lib/string_lib.h"
 
 TEST(StringInfoTests, TestStringSizeInfo) {
     my_str_t str;

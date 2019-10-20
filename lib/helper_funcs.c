@@ -1,7 +1,4 @@
-void move_str_elements_right(char* str, size_t str_size, size_t pos, size_t n);
-size_t str_len(const char* str);
-void str_copy(char* from, char* to, size_t length);
-void str_copy_c(const char* from, char* to, size_t length);
+#include "string_lib.h"
 
 
 void move_str_elements_right(char* str, size_t str_size, size_t pos, size_t n) {
